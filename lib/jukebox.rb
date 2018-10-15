@@ -28,7 +28,7 @@ def play(songs)
     if (input.to_i - 1 == value)
       puts "Playing #{songs[value]}"
       valid = true
-    elsif (choice == song)
+    elsif (input == song)
       puts "Playing #{input}"
       valid = true
     end
@@ -42,6 +42,7 @@ def list (songs)
   puts "#{value + 1}. #{key}"
 end
 end
+
 
   
   
