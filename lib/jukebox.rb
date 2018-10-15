@@ -18,8 +18,6 @@ def help()
 end
 
 
-
-
 def play(songs) 
   input = gets.chomp
   valid = false
