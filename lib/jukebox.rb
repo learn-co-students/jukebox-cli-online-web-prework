@@ -50,7 +50,8 @@ def exit_jukebox()
 end
 
 def run(songs)
- loop do 
+ x = 1
+ while x > 0 
     puts "Please enter a command:"
     input = gets.chomp
     case input 
