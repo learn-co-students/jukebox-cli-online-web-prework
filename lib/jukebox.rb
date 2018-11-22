@@ -25,22 +25,19 @@ def list(songs)
 end
 
 def play(songs)
+  list(songs)
   puts "Please enter a song name or number:"
   response = gets.chomp
-<<<<<<< HEAD
+
   songs.each_with_index do |title, index|
-    if response == index || response == title
+    if response.to_i == index + 1 || response == title
       puts "Playing #{title}"
-    end
-    #puts "Invalid input, please try again"
-=======
-  songs.each_with_index do |index, title|
-    if response == index || title
-      puts "Playing #{title}"
+      break
     else
       puts "Invalid input, please try again"
+      break
     end
->>>>>>> b073f0bc01d4a182723b088c5843b90450f4f70f
+
   end
 end
 
@@ -50,34 +47,14 @@ end
 
 def run(songs)
   help
-<<<<<<< HEAD
-  response = nil
-  until (response == "exit" or "play" or "list" or "help")
-    puts "Please enter a command"
-    response = gets.chomp
-  end
-
-  if response == "play"
-    play(songs)
-  elsif response == "list"
-    list(songs)
-  elsif response == "help"
-    help
-  elsif response == "exit"
-    exit_jukebox
-  else
-    puts "Please enter a valid command"
-  end
-
-=======
   response = nil
   while response != "exit" do
     puts "Please enter a command:"
-    response = gets.chomp
+    response = gets.chomp.downcase
     if response == "list"
       list(songs)
     elsif response == "play"
-      play
+      play(songs)
     elsif response == "help"
       help
     elsif response == "exit"
