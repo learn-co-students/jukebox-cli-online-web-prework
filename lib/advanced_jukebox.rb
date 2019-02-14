@@ -26,8 +26,8 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
-  my_songs.each_with_index do |(k, v), index|
-    puts "#{index + 1}. #{k}"
+  my_songs.each do |song, location|
+    puts "#{song}"
   end
 end
 
@@ -40,17 +40,18 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
-  puts "Please enter a song name:" 
-  song_choice = gets.chomp 
-  my_songs.each do |song_name, path|
-    if song_choice == song_name
-      puts "Playing #{song_name}"
-      system "open #{path}"
-    else
-      puts "Invalid input, please try again"
-    end
-  end
   
+  puts "Please enter a song name:"
+  input = gets.chomp
+  if my_songs.has_key?(input)
+    my_songs.each do |song, location|
+      if input == song 
+        system "open #{location}"
+      end
+    end
+  else 
+    puts "Invalid choice."
+  end
 end
 
 def exit_jukebox
@@ -59,17 +60,19 @@ def exit_jukebox
 end
 
 def run(my_songs)
-  input = ""
-  help
-  while input != "exit"
+  loop do 
+    help
     puts "Please enter a command:"
-    input = gets.chomp.downcase
-    if input == "help"
-      help 
+    input = gets.chomp
     if input == "list"
       list(my_songs)
-    if input == "play"
+    elsif input == "play"
       play(my_songs)
+    elsif input == "help"
+      help
+    elsif input == "exit"
+      exit_jukebox
+      break
+    end
   end
-  exit_jukebox
 end
