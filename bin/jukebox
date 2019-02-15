@@ -15,5 +15,7 @@ songs = [
 ]
 
 
-
+puts "Enter your name:"
+name = gets.chomp
+say_hello(name) 
 run(songs)
