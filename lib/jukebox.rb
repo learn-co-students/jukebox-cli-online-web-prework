@@ -1,3 +1,4 @@
+ 
 require 'pry'
 
 songs = [
@@ -22,19 +23,18 @@ def help
 end 
 
 def list(songs)
-  songs.each_with_index do |index, song_name|
+  songs.each_with_index do |song_name, index|
     song_number = index + 1
     puts "#{song_number}. #{song_name}"
   end 
 end
 
 def play(songs)
-binding.pry
   puts "Please enter a song name or number:"
-  song_input = gets.chomp
-  
-  songs.each_with_index do |index, song_name|
-    song_number = index + 1 
+  song_input = gets.chomp 
+  songs.each_with_index do |song_name, index|
+    song_number = index + 1
+ 
     if song_input == song_number || song_input == song_name 
       puts "Playing #{song_name}"
     else
