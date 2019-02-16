@@ -23,16 +23,19 @@ end
 
 def list(songs)
   songs.each_with_index do |index, song_name|
-    puts "#{index + 1}. #{song_name}"
+    song_number = index + 1
+    puts "#{song_number}. #{song_name}"
   end 
 end
 
 def play(songs)
+binding.pry
   puts "Please enter a song name or number:"
   song_input = gets.chomp
-binding.pry  
+  
   songs.each_with_index do |index, song_name|
-    if song_input == index + 1 || song_input == song_name 
+    song_number = index + 1 
+    if song_input == song_number || song_input == song_name 
       puts "Playing #{song_name}"
     else
       puts "Invalid input, please try again"
