@@ -1,5 +1,4 @@
- 
-require 'pry'
+ require 'pry'
 
 songs = [
   "Phoenix - 1901",
@@ -50,7 +49,7 @@ def exit_jukebox
 end 
 
 
-def run(input)   
+def run(songs)   
   help 
   puts "Please enter a command:" 
   user_input = gets.chomp 
