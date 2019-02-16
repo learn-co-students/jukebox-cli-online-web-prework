@@ -22,6 +22,21 @@ def help
          - exit : exits this program"
 end 
 
+
+def play(songs)
+  puts "Please enter a song name or number:"
+  user_input = gets.chomp 
+  songs.each_with_index do |song_name, index|
+    song_number = index + 1
+    if user_input.to_i == song_number || user_input == song_name 
+      puts "Playing #{song_name}"
+    else 
+      puts "Invalid input, please try again"
+    end 
+  end 
+end 
+
+
 def list(songs)
   songs.each_with_index do |song_name, index|
     song_number = index + 1
@@ -29,16 +44,14 @@ def list(songs)
   end 
 end
 
-def play(songs)
-  puts "Please enter a song name or number:"
-  song_input = gets.chomp 
-  songs.each_with_index do |song_name, index|
-    song_number = index + 1
- 
-    if song_input == song_number || song_input == song_name 
-      puts "Playing #{song_name}"
-    else
-      puts "Invalid input, please try again"
-    end 
-  end 
+
+def exit_jukebox
+  puts "Goodbye"
 end 
+
+
+def run 
+  help 
+  puts "Please enter a command:" 
+  user_input = gets.chomp 
+  
