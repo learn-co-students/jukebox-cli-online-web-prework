@@ -50,8 +50,21 @@ def exit_jukebox
 end 
 
 
-def run 
+def run(input)   
   help 
   puts "Please enter a command:" 
   user_input = gets.chomp 
-  
+  while user_input != "exit"
+    case user_input
+      when "help"
+        help
+      when "list"
+        list(songs)
+      when "play"
+        play(songs)
+      when "exit"
+        exit_jukebox
+    end 
+  end 
+end  
+    
