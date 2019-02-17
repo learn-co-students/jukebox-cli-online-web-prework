@@ -26,8 +26,8 @@ def list(my_songs)
   end 
 end
 
-# I had a working method going above, but Beth showed me a solid method
-# chaining that I had tried in the past and then the way cool
+# I had a working method going above, but Beth showed me a solid "method
+# chaining" that I had tried and failed in the past and then the way cool
 # .with_index() method instead of index + 1 to allow for numbering the list
 # without starting with zero as the first index of the array. 
 # .keys created the array of keys that we used .with_index() on. 
