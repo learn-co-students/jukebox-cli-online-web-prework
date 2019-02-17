@@ -21,11 +21,10 @@ def help
 end
 
 def list(my_songs)
-  song_list = []
-  my_songs.each do |name_key, path_value|
-    song_list << name_key
+  my_songs.keys.each.with_index(1) do |name_key, index|
+    
+    puts "#{index}. #{name_key}"
   end 
-  puts song_list 
 end 
     
   #this method is different! Collect the keys of the my_songs hash and 
@@ -34,15 +33,16 @@ end
 
 def play(my_songs)
   puts "Please enter a song name or number:"
-  user_input = gets.chomp 
-  my_songs.each do |name_key, path_value|
-    
-    if user_input == name_key 
-      puts "Playing #{name_key}"
-      my_songs[name_key] system "open #{path_value}"
-    else 
-      puts "Invalid input, please try again"
-    end 
+  user_input = gets.chomp
+  if my_songs.keys.include?(user_input)
+    my_songs.each do |name_key, path_value|
+      if user_input == name_key 
+        puts "Playing #{name_key}"
+        system "open #{path_value}"
+      end 
+    end
+  else 
+    puts "Invalid input, please try again"
   end 
 end
   
@@ -68,9 +68,9 @@ def run(my_songs)
       when "help"
         help
       when "list"
-        list(songs)
+        list(my_songs)
       when "play"
-        play(songs)
+        play(my_songs)
       when "exit"
         exit_jukebox
     end 
