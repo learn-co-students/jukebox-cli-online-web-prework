@@ -22,10 +22,22 @@ end
 
 def list(my_songs)
   my_songs.keys.each.with_index(1) do |name_key, index|
-    
     puts "#{index}. #{name_key}"
   end 
-end 
+end
+
+# I had a working method going above, but Beth showed me a solid method
+# chaining that I had tried in the past and then the way cool
+# .with_index() method instead of index + 1 to allow for numbering the list
+# without starting with zero as the first index of the array. 
+# .keys created the array of keys that we used .with_index() on. 
+# So .keys creates array of the keys from my_songs hash, then we iterate 
+# over each (.each) element (key) in the array calling .with_index(1) on
+# each element index (chaining the methods) then we puts the value of 
+# that changed/iterated
+# index with a period - 1. and the value of the name_key for that iteration, 
+# creating a numbered list of songs to choose from as it loops and iterates
+# through the array of keys(name_key).
     
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
