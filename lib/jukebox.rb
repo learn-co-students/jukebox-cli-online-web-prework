@@ -29,18 +29,21 @@ def list(songs)
 end
 
 def play(songs)
+  song_index = 0
+  
   puts "Please enter a song name or number:"
   song_selection = gets.chomp
-  
-  if song_selection.to_i == 0
-    if songs.include?(song_selection)
-      puts "Playing #{song_selection}"
+
+  if song_selection.to_i > 0
+    if song_selection.to_i <= songs.length
+      song_index = song_selection.to_i - 1
+      puts "Playing #{songs[song_index]}"
     else
       puts "Invalid input, please try again"
     end
-  elsif song_selection.to_i > 0
-    if song_selection < songs.length + 1
-      puts "Playing #{songs[song_selection + 1]}"
+  elsif song_selection.to_i == 0 && song_selection != "0"
+    if songs.include?(song_selection)
+      puts "Playing #{song_selection}"
     else
       puts "Invalid input, please try again"
     end
@@ -56,7 +59,7 @@ def run(songs)
   
   help
   
-  while user_input != "exit" do
+  loop do
     puts "Please enter a command:"
     user_input = gets.chomp
     
@@ -66,9 +69,12 @@ def run(songs)
       list(songs)
     elsif user_input == "play"
       play(songs)
+    elsif user_input == "exit"
+      break
     else
-      exit_jukebox
+      puts "Invalid input, please try again"
     end
   end
+  exit_jukebox
 end
   
