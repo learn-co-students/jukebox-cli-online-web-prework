@@ -33,14 +33,13 @@ def play(songs)
   song_selection = gets.chomp
   
   if song_selection.to_i == 0
-    binding.pry
     if songs.include?(song_selection)
       puts "Playing #{song_selection}"
     else
       puts "Invalid input, please try again"
     end
   elsif song_selection.to_i > 0
-    if list(songs).include?(song_selection)
+    if song_selection < songs.length + 1
       puts "Playing #{songs[song_selection + 1]}"
     else
       puts "Invalid input, please try again"
