@@ -12,15 +12,6 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
-# def say_hello(name)
-#   "Hi #{name}!"
-# end
- 
-# puts "Enter your name:"
-# users_name = gets.chomp
- 
-# puts say_hello(users_name)
-
 def help
   puts "I accept the following commands:"
   puts "- help : displays this help message"
@@ -41,16 +32,44 @@ def play(songs)
   puts "Please enter a song name or number:"
   song_selection = gets.chomp
   
-  if !song_selection.to_i == 0?
+  if song_selection.to_i == 0
     binding.pry
     if songs.include?(song_selection)
       puts "Playing #{song_selection}"
+    else
+      puts "Invalid input, please try again"
     end
   elsif song_selection.to_i > 0
     if list(songs).include?(song_selection)
       puts "Playing #{songs[song_selection + 1]}"
+    else
+      puts "Invalid input, please try again"
     end
-  else
-    puts "Invalid input, please try again"
   end
 end
+
+def exit_jukebox
+  puts "Goodbye"
+end
+
+def run(songs)
+  user_input = nil
+  
+  help
+  
+  while user_input != "exit" do
+    puts "Please enter a command:"
+    user_input = gets.chomp
+    
+    if user_input == "help"
+      help
+    elsif user_input == "list"
+      list(songs)
+    elsif user_input == "play"
+      play(songs)
+    else
+      exit_jukebox
+    end
+  end
+end
+  
