@@ -1,20 +1,25 @@
+require "pry"
+
 #Here is the song hash you will be working with. Each key is a song name and each value is the location of it's mp3 file.
 #make sure to edit the value of each key to replace < path to this directory >
 #with the correct path to this directory on your computer
 
-# my_songs = {
-# "Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
-# "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
-# "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
-# "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
-# "Wolf" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/05.mp3',
-# "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
-# "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
-# }
+my_songs = {
+"Go Go GO" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/01.mp3',
+"LiberTeens" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/02.mp3',
+"Hamburg" =>  '< /home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/03.mp3',
+"Guiding Light" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/04.mp3',
+"Wolf" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/05.mp3',
+"Blue" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/06.mp3',
+"Graduation Failed" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/07.mp3'
+}
 
 def help
-  #this method should be the same as in jukebox.rb
-
+  puts "I accept the following commands:"
+  puts "- help : displays this help message"
+  puts "- list : displays a list of songs you can play"
+  puts "- play : lets you choose a song to play"
+  puts "- exit : exits this program"
 end
 
 
@@ -22,6 +27,9 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
+  my_songs.each do |song, file_path|
+    binding.pry
+  end
 end
 
 
