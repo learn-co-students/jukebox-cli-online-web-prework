@@ -28,10 +28,9 @@ def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
   my_songs.each do |song, file_path|
-    binding.pry
+    puts song
   end
 end
-
 
 def play(my_songs)
   #this method is slightly different!
@@ -41,13 +40,40 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
+  song = nil
   
+  puts "Please enter a song name: ".chomp
+  song = gets.chomp
+  # binding.pry
+  system "open #{my_songs[song]}" if my_songs.keys.include?(song)
+    
 end
 
 def exit_jukebox
-  #this method is the same as in jukebox.rb
+  puts "Goodbye"
 end
 
+
 def run(my_songs)
-  #this method is the same as in jukebox.rb
+  user_input = nil
+  
+  help
+  
+  loop do
+    puts "Please enter a command:"
+    user_input = gets.chomp
+    
+    if user_input == "help"
+      help
+    elsif user_input == "list"
+      list(my_songs)
+    elsif user_input == "play"
+      play(my_songs)
+    elsif user_input == "exit"
+      break
+    else
+      puts "Invalid input, please try again"
+    end
+  end
+  exit_jukebox
 end
