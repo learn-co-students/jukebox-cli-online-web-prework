@@ -5,7 +5,7 @@ require "pry"
 #with the correct path to this directory on your computer
 
 my_songs = {
-"Go Go GO" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/01.mp3',
+"Go Go GO" => 'B:\Users\Spickett22\Downloads\VA-Electro_Collection_Vol_3-WEB-2016-ENSLAVE\01.mp3',
 "LiberTeens" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/02.mp3',
 "Hamburg" =>  '< /home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/03.mp3',
 "Guiding Light" => '/home/affable-karma-8454/jukebox-cli-online-web-prework/audio/Emerald-Park/04.mp3',
@@ -77,3 +77,5 @@ def run(my_songs)
   end
   exit_jukebox
 end
+
+run(my_songs)
