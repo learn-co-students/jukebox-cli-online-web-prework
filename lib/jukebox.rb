@@ -37,10 +37,10 @@ end
 
 def play(my_songs)
   puts "Please enter a song name or number:"
-    answer = gets.chomp
-    if my_songs.include? answer
+    answer = gets.chomp  # Think about the answer could be a name of the song and a number of the song
+    if my_songs.include? answer # This case is if the answer is the name of the song
       puts "Playing #{answer}"
-    elsif (0...my_songs.length).include? answer.to_i-1
+    elsif (0...my_songs.length).include? answer.to_i-1 # This case is if the answer is the number of the song. Then you have to get the number by using the index. Index stats from 0.
       puts "Playing #{my_songs[answer.to_i-1]}"
     else
       puts "Invalid input, please try again"
