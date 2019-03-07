@@ -52,7 +52,7 @@ def run(songs)
   end
   get_input
 
-  while command == "quit" do
+  while command do
     if command == "list"
       list(songs)
       get_input
@@ -62,7 +62,7 @@ def run(songs)
     elsif command == "play"
       play(songs)
       get_input
-    elsif
+    elsif command == "quit"
       exit_jukebox
       break
     else get_input
