@@ -10,3 +10,4 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
+def method(render)
