@@ -30,9 +30,7 @@ end
 
 def play(songs)
   puts "Please enter a song name or number:"
-  request = ""
   request = gets.chomp
-
   if songs.include?(request)
     response = request
   elsif request.length == 1
@@ -49,9 +47,7 @@ def exit_jukebox
 end
 
 def run(songs)
-  # help
   command = ""
-
   while command
     puts "Please enter a command:"
     command = gets.chomp
