@@ -49,13 +49,13 @@ def run(something)
     response = gets.chomp
     case response
     when "list"
-      list(songs)
+      list(something)
     when "play"
-      play(songs)
+      play(something)
     when "help"
       help
     when "exit"
-      exit
+      exit_jukebox
     end
   end
 end
