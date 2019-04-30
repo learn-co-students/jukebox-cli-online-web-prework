@@ -35,19 +35,36 @@ def play(songs)
  puts "Please enter a song name or number:"
  reply = gets.chomp
  
+ 
  if songs.include? reply
    puts "Playing #{reply}"
+  elsif reply.instance_of?(Integer)
+    puts "Playing #{songs[reply - 1]}"
  else 
    puts "Invalid input, please try again"
   end
+  
 end  
 
 def exit_jukebox
   puts "Goodbye"
 end  
 
-def run
+def run(songs)
+  help
+  puts "Please enter a command:"
+  response = gets.chomp
   
+  case response
+    when "list"
+      list
+    when "play"  
+      play
+    when "help"  
+      help
+    when "exit"  
+      exit_jukebox
+  end  
 end  
 
 
