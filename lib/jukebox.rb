@@ -1,4 +1,3 @@
-require 'pry'
 
 songs = [
   "Phoenix - 1901",
@@ -35,15 +34,14 @@ def play(songs)
  puts "Please enter a song name or number:"
  reply = gets.chomp
  
- 
- if songs.include? reply
-   puts "Playing #{reply}"
-  elsif reply.instance_of?(Integer)
-    puts "Playing #{songs[reply - 1]}"
- else 
-   puts "Invalid input, please try again"
+if songs.include? reply
+  puts "Playing #{reply}"
+  elsif (1..9).to_a.include? reply.to_i
+    puts "Playing #{songs[reply.to_i - 1]}"
+   else 
+     puts "Invalid input, please try again"
+    
   end
-  
 end  
 
 def exit_jukebox
