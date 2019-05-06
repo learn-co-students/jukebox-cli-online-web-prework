@@ -27,20 +27,19 @@ end
 
 def play(songs) 
   puts "Please enter a song name or number:"
-  res = gets.chomp
-  sel_song = nil 
-  songs.each_with_index do |data, index|
-      binding.pry
-      if res.is_a? String 
-      
-      sel_song = data 
-      puts "Playing #{sel_song}"
-       
-      
-     
+  pick = gets.chomp
+  
+  songs.each_with_index do |song, index|
+      if song.include?(pick) 
+      puts "Playing #{song}"
+      elsif songs[pick.to_i] == song
+      puts "Playing #{song}"
+      else
+        puts "Invalid input, please try again"
+
     end
   end 
-  puts "Invalid input, please try again"
+  
 end  
 
 def list(songs)
@@ -57,7 +56,7 @@ end
 def run(songs) 
   help 
   puts "Please enter a command:"
-  res = gets.strip 
+  res = gets.downcase.strip
   if res == "play"
     play(songs)
     
