@@ -1,3 +1,4 @@
+require 'pry'
 songs = [
   "Phoenix - 1901",
   "Tokyo Police Club - Wait Up",
@@ -10,22 +11,9 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
-songs = [
-  "Phoenix - 1901",
-  "Tokyo Police Club - Wait Up",
-  "Sufjan Stevens - Too Much",
-  "The Naked and the Famous - Young Blood",
-  "(Far From) Home - Tiga",
-  "The Cults - Abducted",
-  "Phoenix - Consolation Prizes",
-  "Harry Chapin - Cats in the Cradle",
-  "Amos Lee - Keep It Loose, Keep It Tight"
-]
 
 
-def help(com)
-  if com == "help"
-    
+def help
       puts <<~HEREDOC
     
     I accept the following commands:
@@ -35,14 +23,48 @@ def help(com)
     - exit: exits this program
 
     HEREDOC
-     
-    
-  else 
-    puts "Invalid command"
-  end  
 end   
 
-puts "Please enter a command:"
-command = gets.chomp
+def play(songs) 
+  puts "Please enter a song name or number:"
+  res = gets.chomp
+  sel_song = nil 
+  songs.each_with_index do |data, index|
+      binding.pry
+      if res.is_a? String 
+      
+      sel_song = data 
+      puts "Playing #{sel_song}"
+       
+      
+     
+    end
+  end 
+  puts "Invalid input, please try again"
+end  
 
-help(command)
+def list(songs)
+  songs.each_with_index do |data, i|
+  puts "#{i + 1}. #{data}"
+  end 
+end  
+
+def exit_jukebox
+  puts "Goodbye"
+
+end
+
+def run(songs) 
+  help 
+  puts "Please enter a command:"
+  res = gets.strip 
+  if res == "play"
+    play(songs)
+    
+  end
+  
+   if res == "exit"
+    exit_jukebox
+    
+  end
+end
