@@ -28,16 +28,17 @@ end
 def play(songs) 
   puts "Please enter a song name or number:"
   pick = gets.chomp
-  
+  a_response = nil 
   songs.each_with_index do |song, index|
       if song.include?(pick) 
-      puts "Playing #{song}"
+      a_response = "Playing #{song}"
       elsif songs[pick.to_i] == song
-      puts "Playing #{song}"
+      a_response = "Playing #{song}"
       else
-        puts "Invalid input, please try again"
+      a_response = "Invalid input, please try again"
 
     end
+    puts a_response
   end 
   
 end  
