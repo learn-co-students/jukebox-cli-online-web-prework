@@ -12,9 +12,8 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
-
 def help
-  puts "
+puts"
   I accept the following commands:
 - help : displays this help message
 - list : displays a list of songs you can play
@@ -23,33 +22,33 @@ def help
 end
 
 def list(songs)
-  songs.each_with_index do |song, index|
-  puts "#{index+1}. #{song}"
+  songs.each_with_index do |song, i|
+    puts "#{i+1}. #{song}"
   end
 end
 
 def play(songs)
   puts "Please enter a song name or number:"
-  song_choice = gets.chomp
+  user_input = gets.chomp
   songs.each_with_index do |song, i|
-    if song_choice.to_i == i
-    puts "playing #{songs[i-1]}"
-  elsif song_choice == song 
-  puts "playing #{song[i]}"
-else puts "Invalid input, please try again"
-  end 
-end 
-end 
+  if user_input == song
+    puts "Playing #{song}"
+  elsif user_input.to_i == i
+    puts "Playing #{songs[i-1]}"
+  else
+    puts "Invalid input, please try again"
+   end
+ end
+end
 
 def exit_jukebox
   puts "Goodbye"
 end
 
-def run(method)
-  methods = ["help", "list", "play", "exit"]
-  help
-  puts "Please enter a command:"
-  user_input = gets.chomp
-  exit
-end
+def run(command)
+help
+puts "Please enter a command:"
+user_command = gets.chomp
+
+exit
 end
