@@ -39,8 +39,8 @@ def play(my_songs)
   songsArr.each do |song|
     if song.include?(input) == true
       puts "Playing #{song}"
-      puts "opening song from #{my_songs[input]}"
-      system "open #{my_songs[input]}"
+      puts "opening song from #{my_songs[song]}"
+      system "open #{my_songs[song]}"
       binding.pry
       songFound = true
       break
