@@ -2,9 +2,9 @@
 
 require_relative "../lib/advanced_jukebox"
 
-#as part of my troubleshooting, i've used two different paths -- seen in Go Go Go and LiberTeens 
+#as part of my troubleshooting, i've used two different paths -- seen in Go Go Go and LiberTeens
 my_songs = {
-"Go Go GO" => '/home/communal-tutorial-3267/jukebox-cli-online-web-prework/audio/Emerald-Park/01.mp3',
+"Go Go GO" => '/Users/jeremiah/.atom/.learn-ide/home/communal-tutorial-3267/jukebox-cli-online-web-prework/audio/Emerald-Park/01.mp3',
 "LiberTeens" => '/Users/jeremiah/.atom/.learn-ide/home/communal-tutorial-3267/jukebox-cli-online-web-prework/audio/Emerald-Park/02.mp3',
 "Hamburg" =>  '/Users/jeremiah/.atom/.learn-ide/home/communal-tutorial-3267/jukebox-cli-online-web-prework/audio/Emerald-Park/03.mp3',
 "Guiding Light" => '/Users/jeremiah/.atom/.learn-ide/home/communal-tutorial-3267/jukebox-cli-online-web-prework/audio/Emerald-Park/04.mp3',
