@@ -23,18 +23,36 @@ def list(array)
   array.each_with_index{|x,i| p "#{i+1}. #{x}"}
 end
 
+# def play(array)
+#   puts "Please enter a song name or number:"
+#   input = gets.chomp
+#   # puts "#{input}"
+#   array.each_with_index{|x,i|
+#     binding.pry
+#     if (input == i || input == x)
+# 			puts "Playing #{x}"
+# 		else
+#       puts "Invalid input, please try again"
+# 		end
+# 	}
+# end
+
 def play(array)
   puts "Please enter a song name or number:"
   input = gets.chomp
-  puts "#{input}"
-  array.each_with_index{|x,i|
-    binding.pry
-    if (input == i || input == x)
-			puts "Playing #{x}"
-		else
-      puts "Invalid input, please try again"
-		end
-	}
+  if array.include?(input)
+		puts "Playing #{input}" 
+	elsif input.to_i.to_s == input
+			j = input.to_i 
+			if array[j]
+			# i = array.index(input)
+				puts "Playing #{array[j-1]}"
+			else
+			 	puts "Invalid input, please try again"
+			end
+	else
+		puts "Invalid input, please try again"
+	end
 end
 
 
@@ -42,5 +60,23 @@ def exit_jukebox
   puts "Goodbye"
 end
 
-def run
+def run(array)
+  help
+  puts "Please enter a command:"
+  input = gets.chomp
+  until input == "exit"
+    case input
+    when "list"
+      list(array)
+    when "play"
+      play(array)
+    when "help"
+      help
+   
+    end
+    puts "Please enter a command:"
+    input = gets.chomp
+  end
+  exit_jukebox
+     
 end
